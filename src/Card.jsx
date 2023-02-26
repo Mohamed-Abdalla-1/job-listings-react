@@ -4,26 +4,31 @@ const Card = (props) => {
   return (
     <>
       {props.data.map((job) => (
-        <div className="container">
-          <div key={job.id}>
-            <img src={job.logo} alt="Company Logo" />
-          </div>
-          <div>
-            <div className="top">
-              <p>{job.company}</p>
-              {job.new && <p>NEW!</p>}
-              {job.featured && <p>FEATURED</p>}
+        <div className="container" key={job.id}>
+          <div className="left">
+            <div>
+              <img src={job.logo} alt="Company Logo" />
             </div>
-            <p>{job.position}</p>
-            <div className="bottom">
-              <p>{job.postedAt}</p>
-              <p>{job.contract}</p>
-              <p>{job.location}</p>
+            <div>
+              <div className="top">
+                <p>{job.company}</p>
+                {job.new && <p className="new">NEW!</p>}
+                {job.featured && <p className="featured">FEATURED</p>}
+              </div>
+              <p>{job.position}</p>
+              <div className="bottom">
+                <p>{job.postedAt}</p>
+                <p>{job.contract}</p>
+                <p>{job.location}</p>
+              </div>
             </div>
           </div>
+
           <div className="languages">
             {job.languages.map((language) => (
-              <p>{language}</p>
+              <p key={language} className="right">
+                {language}
+              </p>
             ))}
           </div>
         </div>
@@ -32,5 +37,4 @@ const Card = (props) => {
   );
 };
 
-
-export default Card
+export default Card;
