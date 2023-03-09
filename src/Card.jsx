@@ -1,9 +1,9 @@
 import React from "react";
 
-const Card = (props) => {
+const Card = ({ data, handleClick }) => {
   return (
     <>
-      {props.data.map((job) => (
+      {data.map((job) => (
         <div className="container" key={job.id}>
           <div className="left">
             <div>
@@ -25,10 +25,21 @@ const Card = (props) => {
           </div>
 
           <div className="languages">
+            <li className="right" value={1} onClick={handleClick}>
+              {job.role}
+            </li>
+            <li className="right" value={2} onClick={handleClick}>
+              {job.level}
+            </li>
             {job.languages.map((language) => (
-              <p key={language} className="right">
+              <li
+                key={language}
+                className="right"
+                value={3}
+                onClick={handleClick}
+              >
                 {language}
-              </p>
+              </li>
             ))}
           </div>
         </div>
