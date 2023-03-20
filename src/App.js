@@ -2,7 +2,7 @@ import "./App.css";
 import data from "./data.json";
 import Heading from "./Heading";
 import Card from "./Card";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import JobsFilter from "./JobsFilter";
 
 function App() {
@@ -30,8 +30,6 @@ function App() {
           event.target.textContent
         ));
     setAddedFilters(newAddedFilters);
-
-    console.log(newAddedFilters);
   }
 
   function removeAllFilter() {
@@ -49,7 +47,7 @@ function App() {
       ? (updatedFilter.role = updatedFilter.role.filter(
           (x) => x !== event.target.value
         ))
-      : (updatedFilter.level = updatedFilter.level.includes(event.target.value)
+      : (updatedFilter.level.includes(event.target.value)
           ? updatedFilter.level.filter((x) => x !== event.target.value)
           : (updatedFilter.languages = updatedFilter.languages.filter(
               (x) => x !== event.target.value
@@ -58,6 +56,8 @@ function App() {
     setAddedFilters(updatedFilter);
   }
 
+
+  useEffect(()=>{},[])
   const filteredData = data.filter((job) => {
     if (addedFilters.level.length && !addedFilters.level.includes(job.level))
       return false;
@@ -72,6 +72,8 @@ function App() {
       return false;
     return true;
   });
+
+  console.log(addedFilters);
 
   return (
     <div className="App">
