@@ -47,17 +47,18 @@ function App() {
       ? (updatedFilter.role = updatedFilter.role.filter(
           (x) => x !== event.target.value
         ))
-      : (updatedFilter.level.includes(event.target.value)
-          ? updatedFilter.level.filter((x) => x !== event.target.value)
-          : (updatedFilter.languages = updatedFilter.languages.filter(
-              (x) => x !== event.target.value
-            )));
+      : updatedFilter.level.includes(event.target.value)
+      ? (updatedFilter.level = updatedFilter.level.filter(
+          (x) => x !== event.target.value
+        ))
+      : (updatedFilter.languages = updatedFilter.languages.filter(
+          (x) => x !== event.target.value
+        ));
 
     setAddedFilters(updatedFilter);
   }
 
-
-  useEffect(()=>{},[])
+  useEffect(() => {}, []);
   const filteredData = data.filter((job) => {
     if (addedFilters.level.length && !addedFilters.level.includes(job.level))
       return false;
