@@ -36,5 +36,3 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 The design spec is from the Frontend Mentor platform: 
 https://www.frontendmentor.io/challenges/job-listings-with-filtering-ivstIPCt
-
-Let me know if you would like me to modify or expand this README. The goal was to provide a high-level overview of the project's purpose, key features, and technical approach.
